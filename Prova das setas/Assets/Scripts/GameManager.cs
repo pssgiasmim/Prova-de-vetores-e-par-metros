@@ -36,6 +36,19 @@ public class GameManager : MonoBehaviour
         }
 
         ContagemRegressiva();
+
+      
+    }
+
+    void ContagemRegressiva()
+    {
+        relogio -= Time.deltaTime;
+        AtualizarTextos(pontos, relogio);
+        if(relogio <= 0)
+        {
+             teclas.Lenght.pontos -= teclaAtual;
+            GerarSetas();
+        }
     }
 
 }
