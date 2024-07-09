@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro.EditorUtilities;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -46,9 +47,25 @@ public class GameManager : MonoBehaviour
         AtualizarTextos(pontos, relogio);
         if(relogio <= 0)
         {
-             teclas.Lenght.pontos -= teclaAtual;
+             teclas.Length.pontos -= teclaAtual;
             GerarSetas();
         }
+
+
+    }
+
+    void GerarSetas()
+    {
+        teclaAtual= 0;
+        teclas = new KeyCode[Random.Range(5, 15)];
+        for (int i = 0; KeyCode[Random.Range(273, 276)];i++) ;
+        {
+            relogio = teclas.Length / 2;
+
+            UIManager.AtualiazarSetas(teclas);
+        }
+
+         
     }
 
 }
