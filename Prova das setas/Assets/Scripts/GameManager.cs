@@ -3,16 +3,39 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
+
 {
-    // Start is called before the first frame update
-    void Start()
+    int pontos, teclaAtual;
+    float relogio;
+    KeyCode[] teclas;
+
+    private void Start()
     {
-        
+        GerarSetas();
+    }
+    void Update ()
+    {
+        if (Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            Checartecla(UpArrow);
+        }
+
+        if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            Checartecla(DownArrow);
+        }
+
+        if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            Checartecla(RightArrow);
+        }
+
+        if (Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            Checartecla(LeftArrow);
+        }
+
+        ContagemRegressiva();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
