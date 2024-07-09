@@ -190,3 +190,8 @@ Received Import Request.
 Start importing Assets/Sprites/Vazio.png using Guid(df1fe60cd3f653e4fa1ff3bd7dc1a69b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1952bc1dd089099a9da91d3d7c5cd359') in 0.100307 seconds
 Number of updated asset objects reloaded before import = 0
 Number of asset objects unloaded after import = 3
+Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
+TcpMessagingSession - receive error: operation aborted. errorcode: 995, details: A operação de E/S foi anulada devido a uma saída de thread ou a uma requisição de aplicativo.
+AssetImportWorker is now disconnected from the server
+Process exiting
+Exiting without the bug reporter. Application will terminate with return code 0
