@@ -198,3 +198,27 @@ Received Import Request.
 Start importing Assets/Sprites/Seta para esquerda.png using Guid(21c4d0b001848f04ea566a513bc2d9b2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4a5d0985b3a5417f7f1468dfe5d4b9af') in 0.028181 seconds
 Number of updated asset objects reloaded before import = 0
 Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 2938.165630 seconds.
+  path: Assets/Scripts
+  artifactKey: Guid(14da9961b7460d24b83cb79fa8975572) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts using Guid(14da9961b7460d24b83cb79fa8975572) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6d67edae1bd733c95b950a7adcce8aa3') in 0.006005 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 7.071499 seconds.
+  path: Assets/Scripts/UIManager.cs
+  artifactKey: Guid(4ce7b339b51814e4d9983c3cc6c2b57e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/UIManager.cs using Guid(4ce7b339b51814e4d9983c3cc6c2b57e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6e4df361abc8cc79aaeca625dfb28b96') in 0.001208 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 302.060200 seconds.
+  path: Assets/Scripts/UIManager.cs
+  artifactKey: Guid(4ce7b339b51814e4d9983c3cc6c2b57e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/UIManager.cs using Guid(4ce7b339b51814e4d9983c3cc6c2b57e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ad0498f9887f2386fa8e8244bfa9ffae') in 0.002351 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
