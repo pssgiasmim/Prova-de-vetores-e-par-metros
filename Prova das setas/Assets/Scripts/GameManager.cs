@@ -44,7 +44,7 @@ public class GameManager : MonoBehaviour
     void ContagemRegressiva()
     {
         relogio -= Time.deltaTime;
-        AtualizarTextos(pontos, relogio);
+        AtualizarTexto(pontos, relogio);
         if(relogio <= 0)
         {
              teclas.Length.pontos -= teclaAtual;
@@ -62,10 +62,33 @@ public class GameManager : MonoBehaviour
         {
             relogio = teclas.Length / 2;
 
-            UIManager.AtualiazarSetas(teclas);
+            UIManager.AtualiazarSeta(teclas);
         }
 
          
+    }
+
+    void ChecarTecla(KeyCode teclaPressionada)
+    {
+        if (teclaPressionada == teclas[teclaAtual])
+        {
+            pontos++;
+            AtualizarSeta(teclaAtual, true);
+        }
+        else
+        {
+            pontos--;
+            relogio--;
+            AtualizarSeta(teclaAtual, false);
+        }
+
+        UIManager.AtualizarTextos(pontos, relogio);
+        teclaAtual++;
+        if(teclaAtual == teclas.Length)
+        {
+            GerarSetas();
+        }
+
     }
 
 }
