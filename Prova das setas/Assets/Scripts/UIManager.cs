@@ -67,6 +67,7 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    //Método para trocas cores das setas
     void AtualizarSeta( int setaSelecionada, bool acertou)
     {
         if (acertou)
@@ -77,6 +78,13 @@ public class UIManager : MonoBehaviour
         {
             imagens[setaSelecionada].color = Color.red;
         }
+    }
+
+    //Método para trocar os textos de pontuação
+    void AtualizarTextos(int pontuacao, float relogio)
+    {
+        textoDePontuacao.text = pontuacao.ToString(); //ToString é uma forma de converter valores numéricos para string.
+        textoDoRelogio.text = relogio.ToString();
     }
 
 
