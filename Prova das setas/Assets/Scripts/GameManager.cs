@@ -16,25 +16,25 @@ public class GameManager : MonoBehaviour
     }
     void Update ()
     {
+        //Verificação para cada tecla direcional se foram pressionadas
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
-            Checartecla(UpArrow);
-            
+            ChecarTecla(KeyCode.UpArrow); 
         }
 
-        if (Input.GetKeyDown(KeyCode.DownArrow))
+        else if (Input.GetKeyDown(KeyCode.DownArrow))
         {
-            Checartecla(DownArrow);
+            ChecarTecla(KeyCode.DownArrow);
         }
 
-        if (Input.GetKeyDown(KeyCode.RightArrow))
+        else if (Input.GetKeyDown(KeyCode.RightArrow))
         {
-            Checartecla(RightArrow);
+            ChecarTecla(KeyCode.RightArrow);
         }
 
-        if (Input.GetKeyDown(KeyCode.UpArrow))
+        else if (Input.GetKeyDown(KeyCode.UpArrow))
         {
-            Checartecla(LeftArrow);
+            ChecarTecla(KeyCode.LeftArrow);
         }
 
         ContagemRegressiva();
@@ -44,11 +44,11 @@ public class GameManager : MonoBehaviour
 
     void ContagemRegressiva()
     {
-        relogio -= Time.deltaTime;
-        AtualizarTexto(pontos, relogio);
+        relogio -= Time.deltaTime; //Decremente relogio com Time.deltaTime.
+        UIManager.instance.AtualizarTextos(pontos, relogio);
         if(relogio <= 0)
         {
-             teclas.Length.pontos -= teclaAtual;
+            pontos -= teclaAtual - teclaAtual; //Se relogio for menor ou igual a 0, subtraia pontos por teclas.Length menos teclaAtual  e chame GerarSetas.
             GerarSetas();
         }
 
@@ -59,32 +59,35 @@ public class GameManager : MonoBehaviour
     {
         teclaAtual= 0;
         teclas = new KeyCode[Random.Range(5, 15)];
-        for (int i = 0; KeyCode[Random.Range(273, 276)];i++) ;
-        {
-            relogio = teclas.Length / 2;
 
-            UIManager.AtualiazarSeta(teclas);
+        for (int i = 0; i < teclas.Length ; i++)  //Crie um novo array de KeyCode com um tamanho aleatório entre 5 e 15 e atribua a teclas.
+        {               // Esse KeyCode ao lado de Random, serve para converter o valor de Random.Range em KeyCode
+            teclas[i] = (KeyCode)Random.Range(273, 276); //Por meio de um for, preencha o array com valores aleatórios entre 273 e 276 (códigos para setas direcionais).
         }
 
-         
+        relogio = teclas.Length / 2; //Defina relogio como a metade do comprimento do array de teclas.
+
+        UIManager.instance.AtualizarSetas(teclas); 
     }
 
     void ChecarTecla(KeyCode teclaPressionada)
     {
-        if (teclaPressionada == teclas[teclaAtual])
+        if (teclaPressionada == teclas[teclaAtual]) //Verifique se a teclaPressionada corresponde à teclaAtual do array teclas.
         {
             pontos++;
-            AtualizarSeta(teclaAtual, true);
+            UIManager.instance.AtualizarSeta(teclaAtual, true);
         }
         else
         {
             pontos--;
             relogio--;
-            AtualizarSeta(teclaAtual, false);
+            UIManager.instance.AtualizarSeta(teclaAtual, false);
         }
 
-        UIManager.AtualizarTextos(pontos, relogio);
+        UIManager.instance.AtualizarTextos(pontos, relogio);
+
         teclaAtual++;
+
         if(teclaAtual == teclas.Length)
         {
             GerarSetas();

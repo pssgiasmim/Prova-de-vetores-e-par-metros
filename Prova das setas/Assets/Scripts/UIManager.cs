@@ -10,8 +10,8 @@ using UnityEngine;
 public class UIManager : MonoBehaviour
 
 {
-
-    UIManager instance;
+    //PRESTAR ATENÇÃO, PUBLICO ESTATICO 
+   public static UIManager instance;
 
     [SerializeField] Sprite[] sprites;
 
@@ -68,7 +68,7 @@ public class UIManager : MonoBehaviour
     }
 
     //Método para trocas cores das setas
-    void AtualizarSeta( int setaSelecionada, bool acertou)
+    public void AtualizarSeta( int setaSelecionada, bool acertou)
     {
         if (acertou)
         {
@@ -81,8 +81,8 @@ public class UIManager : MonoBehaviour
     }
 
     //Método para trocar os textos de pontuação
-    void AtualizarTextos(int pontuacao, float relogio)
-    {
+    public void AtualizarTextos(int pontuacao, float relogio)
+    { 
         textoDePontuacao.text = pontuacao.ToString(); //ToString é uma forma de converter valores numéricos para string.
         textoDoRelogio.text = relogio.ToString();
     }
