@@ -65,7 +65,18 @@ public class UIManager : MonoBehaviour
             //Alteração de cor da imagem
             imagens[i].color = Color.white;
         }
+    }
 
+    void AtualizarSeta( int setaSelecionada, bool acertou)
+    {
+        if (acertou)
+        {
+            imagens[setaSelecionada].color = Color.green;
+        }
+        else
+        {
+            imagens[setaSelecionada].color = Color.red;
+        }
     }
 
 

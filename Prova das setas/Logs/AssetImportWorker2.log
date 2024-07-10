@@ -190,3 +190,19 @@ Received Import Request.
 Start importing Assets/Scripts/UIManager.cs using Guid(4ce7b339b51814e4d9983c3cc6c2b57e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '89434a5c8e276a6d13e9b3c95ddb8e26') in 0.001587 seconds
 Number of updated asset objects reloaded before import = 0
 Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 2160.308909 seconds.
+  path: Assets/Scripts/UIManager.cs
+  artifactKey: Guid(4ce7b339b51814e4d9983c3cc6c2b57e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/UIManager.cs using Guid(4ce7b339b51814e4d9983c3cc6c2b57e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd6904bace71cd49bf694fa053504769e') in 0.001080 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 217.646985 seconds.
+  path: Assets/Scripts/UIManager.cs
+  artifactKey: Guid(4ce7b339b51814e4d9983c3cc6c2b57e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/UIManager.cs using Guid(4ce7b339b51814e4d9983c3cc6c2b57e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bcac9989d8a67c8e92db262ca341b794') in 0.000663 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
