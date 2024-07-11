@@ -1,22 +1,32 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro.EditorUtilities;
 using UnityEngine;
 
+//Criação da Classe GameManager
 public class GameManager : MonoBehaviour
 
 {
+    //Declare variáveis do tipo int chamadas pontos e teclaAtual.
     int pontos, teclaAtual;
+    //Declare uma variável do tipo float chamada relogio.
     float relogio;
+    //Declare uma variável do tipo array de KeyCode chamada teclas.
     KeyCode[] teclas;
 
+    //Método Start:
     private void Start()
     {
+        //No método Start, chame o método GerarSetas.
         GerarSetas();
     }
+
+    //Método Update:
     void Update ()
     {
-        //Verificação para cada tecla direcional se foram pressionadas
+        //No método Update, faça uma verificação para cada seta direcional, se foram pressionadas (DownArrow, UpArrow, RightArrow, LeftArrow).
+        //Se for, em cada checagem, chame o método ChecarTecla passando a tecla correspondente como parâmetro.
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
             ChecarTecla(KeyCode.UpArrow); 
@@ -37,58 +47,80 @@ public class GameManager : MonoBehaviour
             ChecarTecla(KeyCode.LeftArrow);
         }
 
+        //Depois chame o método ContagemRegressiva.
         ContagemRegressiva();
 
       
     }
 
+    //Método ContagemRegressiva:
     void ContagemRegressiva()
     {
-        relogio -= Time.deltaTime; //Decremente relogio com Time.deltaTime.
+        //Decremente relogio com Time.deltaTime.
+        relogio -= Time.deltaTime;
+
+        //Atualize os textos no UIManager chamando AtualizarTextos passando pontos e relogio.
         UIManager.instance.AtualizarTextos(pontos, relogio);
-        if(relogio <= 0)
+
+        //Se relogio for menor ou igual a 0, subtraia pontos por teclas.Length menos teclaAtual  e chame GerarSetas.
+        if (relogio <= 0)
         {
-            pontos -= teclaAtual - teclaAtual; //Se relogio for menor ou igual a 0, subtraia pontos por teclas.Length menos teclaAtual  e chame GerarSetas.
+            pontos -= teclaAtual - teclaAtual; 
             GerarSetas();
         }
 
 
     }
 
+    //Método GerarSetas:
     void GerarSetas()
     {
-        teclaAtual= 0;
+        //Inicialize teclaAtual como 0.
+        teclaAtual = 0;
+
+        //Crie um novo array de KeyCode com um tamanho aleatório entre 5 e 15 e atribua a teclas.
         teclas = new KeyCode[Random.Range(5, 15)];
 
-        for (int i = 0; i < teclas.Length ; i++)  //Crie um novo array de KeyCode com um tamanho aleatório entre 5 e 15 e atribua a teclas.
+        //Por meio de um for, preencha o array com valores aleatórios entre 273 e 276(códigos para setas direcionais).
+        for (int i = 0; i < teclas.Length ; i++)  
         {               // Esse KeyCode ao lado de Random, serve para converter o valor de Random.Range em KeyCode
-            teclas[i] = (KeyCode)Random.Range(273, 276); //Por meio de um for, preencha o array com valores aleatórios entre 273 e 276 (códigos para setas direcionais).
+            teclas[i] = (KeyCode)Random.Range(273, 276); 
         }
 
-        relogio = teclas.Length / 2; //Defina relogio como a metade do comprimento do array de teclas.
+        //Defina relogio como a metade do comprimento do array de teclas.
+        relogio = teclas.Length / 2;
 
+        //Atualize as setas no UIManager chamando AtualizarSetas passando teclas como parâmetro.
         UIManager.instance.AtualizarSetas(teclas); 
     }
 
+    //Método ChecarTecla:
+    //Crie um parâmetro KeyCode chamado teclaPressionada
     void ChecarTecla(KeyCode teclaPressionada)
     {
-        if (teclaPressionada == teclas[teclaAtual]) //Verifique se a teclaPressionada corresponde à teclaAtual do array teclas.
+        ////Verifique se a teclaPressionada corresponde à teclaAtual do array teclas.
+        if (teclaPressionada == teclas[teclaAtual]) 
         {
+            //Se sim, incremente pontos e chame AtualizarSeta passando teclaAtual e true como parâmetro.
             pontos++;
             UIManager.instance.AtualizarSeta(teclaAtual, true);
         }
         else
         {
+            //Se não, decremente pontos e relogio, e chame AtualizarSeta passando teclaAtual e false como parâmetro.
             pontos--;
             relogio--;
             UIManager.instance.AtualizarSeta(teclaAtual, false);
         }
 
+        //Atualize os textos no UIManager chamando AtualizarTextos passando pontos e relogio como parâmetro.
         UIManager.instance.AtualizarTextos(pontos, relogio);
 
+        //Incremente teclaAtual.
         teclaAtual++;
 
-        if(teclaAtual == teclas.Length)
+        //Se teclaAtual for igual ao comprimento do array teclas, chame GerarSetas.
+        if (teclaAtual == teclas.Length)
         {
             GerarSetas();
         }
