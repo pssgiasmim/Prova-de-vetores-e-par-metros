@@ -6,22 +6,25 @@ using UnityEngine.UI;
 
 using UnityEngine;
 
- 
+//Crie uma classe chamada UIManager que herda de MonoBehaviour.
 public class UIManager : MonoBehaviour
 
 {
-    //PRESTAR ATENÇÃO, PUBLICO ESTATICO 
+   //Declare uma variável estática pública do tipo UIManager chamada instance.
    public static UIManager instance;
 
+    //Declare um array serializado do tipo Sprite chamado sprites.
     [SerializeField] Sprite[] sprites;
 
+    //Declare um array serializado do tipo Image chamado imagens.
     [SerializeField] Image[] imagens;
 
+    //Declare duas variáveis serializadas do tipo TextMeshProUGUI chamadas textoDePontuacao e textoDoRelogio.
     [SerializeField] TextMeshProUGUI textoDePontuacao; //Para qualquer TextMeshProUgui, é necessário ter um TMPro la encima, é gerado automaticamente.
 
     [SerializeField] TextMeshProUGUI textoDoRelogio;
 
-    //Qualquer AWAKE precisa de um SINGLETON.
+    //No método Awake, inicialize instance como a instância atual(this).
     #region Singleton
 
     private void Awake()
@@ -34,17 +37,19 @@ public class UIManager : MonoBehaviour
 
     #endregion
 
+    //Método AtualizarSetas: //Este método tem como parâmetro um array de KeyCode chamado setas.
     public void AtualizarSetas(KeyCode[] setas) //Dentro do array/vetor KeyCode, tem o direcionamento de várias setas.
 
     {
-
+        //Para cada Image em imagens, atualize a sprite correspondente com base no valor da tecla em setas.
         for (int i = 0; i < imagens.Length; i++) //Serve para percorrer cada imagem de cada seta.
-        {  //Deve se comparar se as imagens das setas, são iguais as setas selecionadas. Se a imagem é seta para cima, a seta deve ser para cima.
-
+        {
+            //Se o índice for maior ou igual ao comprimento do array setas, defina a sprite como a primeira no array sprites.
             if (i >= setas.Length)
             {
                 imagens[i].sprite = sprites[0]; //Aqui se altera a imagens[i] de sprite, para sprites[0]. //o [i] para saber qual repetição esta.
             }
+            //Caso contrário, defina a sprite com base na tecla (DownArrow, UpArrow, LeftArrow, RightArrow).
             else if (setas[i] == KeyCode.DownArrow) //Tecla para baixo
             {
                 imagens[i].sprite = sprites[1];
@@ -62,28 +67,34 @@ public class UIManager : MonoBehaviour
                 imagens[i].sprite = sprites[4];
             }
 
-            //Alteração de cor da imagem
+            //Defina a cor da imagem como branca.
             imagens[i].color = Color.white;
         }
     }
 
-    //Método para trocas cores das setas
+    //Método AtualizarSeta:
+    //Este método tem como parâmetro um inteiro setaSelecionada e um booleano acertou.
     public void AtualizarSeta( int setaSelecionada, bool acertou)
     {
+        //Se acertou for verdadeiro, defina a cor da imagem correspondente como verde.
         if (acertou)
         {
             imagens[setaSelecionada].color = Color.green;
         }
+        //Caso contrário, defina a cor da imagem como vermelha.
         else
         {
             imagens[setaSelecionada].color = Color.red;
         }
     }
 
-    //Método para trocar os textos de pontuação
+    //Método AtualizarTextos:
+    //Este método tem como parâmetro um inteiro pontuacao e um float relogio.
     public void AtualizarTextos(int pontuacao, float relogio)
-    { 
+    {
+        //Atualize o text de textoDePontuacao com o valor de pontuacao convertido para string.
         textoDePontuacao.text = pontuacao.ToString(); //ToString é uma forma de converter valores numéricos para string.
+        //- Atualize o `text` de `textoDoRelogio` com o valor de `relogio` convertido para `string`.
         textoDoRelogio.text = relogio.ToString();
     }
 
